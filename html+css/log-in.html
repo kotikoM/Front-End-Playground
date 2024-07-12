@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      button {
+        margin-top: 50%;
+        border: none;
+        background-color: dodgerblue;
+        font-size: large;
+        padding: 10px;
+        border-radius: 10%;
+        cursor: pointer;
+      }
+
+      .popup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        padding: 20px;
+        border: 1px solid #ccc;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+        width: 200px;
+        height: 280px;
+
+        .popup-content {
+          text-align: left;
+        }
+
+        .close {
+          position: absolute;
+          top: 6px;
+          right: 10px;
+          cursor: pointer;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="openPopup()">LOG IN</button>
+
+    <div id="loginPopup" class="popup">
+      <div class="popup-content">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <h2>Login</h2>
+        <form id="loginForm">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required />
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required />
+          <button type="submit">Login</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="output"></div>
+
+    <script>
+      window.onload = function () {
+        const loginForm = document.getElementById("loginForm");
+        const output = document.getElementById("output");
+
+        loginForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const username = document.getElementById("username").value;
+          const password = document.getElementById("password").value;
+          output.innerHTML = `Username: ${username}, Password: ${password}`;
+          document.getElementById("loginPopup").style.display = "none";
+        });
+      };
+      function openPopup() {
+        document.getElementById("loginPopup").style.display = "flex";
+      }
+
+      function closePopup() {
+        document.getElementById("loginPopup").style.display = "none";
+      }
+    </script>
+  </body>
+</html>

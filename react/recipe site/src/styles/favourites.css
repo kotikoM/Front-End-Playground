@@ -1,0 +1,28 @@
+.container {
+  color: white;
+}
+
+.recipes-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.recipe-item {
+  color: black;
+  background-color: beige;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+
+.remove {
+    color: white;
+    font-size: 20px;
+    margin: 20px
+}
+
+p {
+  color: black;
+}

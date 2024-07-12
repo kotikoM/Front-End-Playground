@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Countdown</title>
+  <style>
+    .event-section {
+      padding: 20px;
+      margin-bottom: 20px;
+      border: 2px solid black;
+      width: 300px;
+    }
+  </style>
+</head>
+<body>
+  <div class="event-section">
+    <h2>Event Countdown</h2>
+    <label for="eventName">Event Name:</label>
+    <input type="text" id="eventName"><br><br>
+    <label for="eventDate">Event Date:</label>
+    <input type="date" id="eventDate"><br><br>
+    <button onclick="countdown()">Countdown</button><br><br>
+    <p id="countdownResult"></p>
+  </div>
+
+  <script>
+    function countdown() {
+      const eventName = document.getElementById("eventName").value;
+      const eventDate = new Date(document.getElementById("eventDate").value);
+      const today = new Date();
+      
+      const differenceMs = eventDate - today;
+      const differenceDays = Math.ceil(differenceMs / (1000 * 60 * 60 * 24));
+
+      // Display the countdown result
+      const countdownResult = document.getElementById("countdownResult");
+      countdownResult.textContent = `Days until ${eventName}: ${differenceDays}`;
+    }
+  </script>
+</body>
+</html>

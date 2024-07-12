@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roll Dice</title>
+    <style>
+      .player-section {
+        padding: 20px;
+        margin-bottom: 20px;
+        border: 2px solid black;
+        width: 150px;
+      }
+
+      #player1 {
+        display: none;
+      }
+
+      #player2 {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="player-section">
+      <h2>Player 1</h2>
+      <button id="rollPlayer1" onclick="roll(1)">Roll</button>
+      <p>Roll Output: <span id="rollOutputPlayer1"></span></p>
+      <p>Score: <span id="scorePlayer1"></span></p>
+    </div>
+    <div class="player-section">
+      <h2>Player 2</h2>
+      <button id="rollPlayer2" onclick="roll(2)">Roll</button>
+      <p>Roll Output: <span id="rollOutputPlayer2"></span></p>
+      <p>Score: <span id="scorePlayer2"></span></p>
+    </div>
+
+    <h1 id="player1">Player 1 won!</h1>
+    <h1 id="player2">Player 2 won!</h1>
+
+    <script>
+      function roll(id) {
+        const output = document.getElementById("rollOutputPlayer" + id);
+        const score = document.getElementById("scorePlayer" + id);
+        const rollRes1 = Math.floor(Math.random() * 7);
+        const rollRes2 = Math.floor(Math.random() * 7);
+
+        output.textContent = rollRes1 + " " + rollRes2;
+
+        let currentScore = parseInt(score.textContent || 0);
+        if (rollRes1 == 1 || rollRes2 == 1) {
+          score.textContent = 0;
+        } else {
+          let newScore = currentScore + rollRes1 + rollRes2;
+          score.textContent = newScore;
+
+          if (newScore >= 100) {
+            document.getElementById("player" + id).style.display = "block";
+          }
+        }
+
+        //if newscore is 100 player + id has won
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+h2 {
+  color: black;
+  margin: 5px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.search-input {
+  font-size: 30px;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  background-color: #03071e;
+  margin-bottom: 10px;
+}
+
+.search-button {
+    background-color: #f48c06;
+    border: 2px solid #f48c06;
+}
+
+.search-button:hover {
+  border: 2px solid black;
+}
+
+.recipes-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.recipe-item {
+  transition: all 0.5s ease;
+  color: black;
+  background-color: beige;
+  margin: 10px;
+  border-radius: 10px;
+  width: 460px;
+}
+
+.recipe-item:hover {
+  transform: translate(-5px, -5px);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}

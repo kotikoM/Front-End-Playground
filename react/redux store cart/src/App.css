@@ -1,0 +1,31 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.products {
+  background-color: gray;
+  padding: 10px;
+}
+
+.cart {
+  background-color:darkgray;
+}
+
+.products, .cart {
+  flex: 1;
+  padding: 10px;
+}
+
+.products-display {
+  display: flex;
+}
